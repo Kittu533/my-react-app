@@ -39,11 +39,16 @@ const Body = (props) => {
 };
 
 const Footer = (props) => {
-  const { price } = props;
+  const { price, handleAddToCart ,id } = props;
   return (
     <div className="mt-auto flex items-center justify-between">
-      <div className="">{price}</div>
-      <button className="rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
+      <div className="">
+        {price.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}
+      </div>
+      <button
+        onClick={() => handleAddToCart (id)}
+        className="rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
+      >
         Add to Cart
       </button>
     </div>

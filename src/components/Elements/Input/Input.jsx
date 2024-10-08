@@ -1,6 +1,6 @@
-const Input = (props) => {
-  const { type, placeholder,name } = props;
+import { forwardRef } from "react";
 
+const Input = forwardRef(({ type, placeholder, name }, ref) => {
   return (
     <input
       type={type}
@@ -8,7 +8,11 @@ const Input = (props) => {
       placeholder={placeholder}
       name={name}
       id={name}
+      ref={ref}
     />
   );
-};
+});
+
+Input.displayName = "Input"; // Menambahkan displayName untuk menghilangkan peringatan
+
 export default Input;
