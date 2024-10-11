@@ -18,7 +18,7 @@ const Header = (props) => {
       <img
         src={image}
         alt=""
-        className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
+        className="h-40 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
       />
     </div>
   );
@@ -31,22 +31,22 @@ const Body = (props) => {
         {" "}
         New{" "}
       </span>
-      <h3 className="mt-4 text-lg font-medium text-gray-900">{name}</h3>
+      <h3 className="mt-4 text-lg font-medium text-gray-900">{name.substring(0, 20)}...</h3>
 
-      <p className="mt-1.5 text-sm text-gray-700">{children}</p>
+      <p className="mt-1.5 text-sm text-gray-700">{children.substring(0, 100)}...</p>
     </div>
   );
 };
 
 const Footer = (props) => {
-  const { price, handleAddToCart ,id } = props;
+  const { price, handleAddToCart, id } = props;
   return (
     <div className="mt-auto flex items-center justify-between">
       <div className="">
-        {price.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}
+        {price.toLocaleString("id-ID", { style: "currency", currency: "USD" })}
       </div>
       <button
-        onClick={() => handleAddToCart (id)}
+        onClick={() => handleAddToCart(id)}
         className="rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105"
       >
         Add to Cart

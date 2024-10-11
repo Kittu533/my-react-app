@@ -7,12 +7,13 @@ import LoginPage from "./Pages/login";
 import RegisterPage from "./Pages/register";
 import ErrorPage from "./Pages/404";
 import ProductPage from "./Pages/products";
+import ProfilePage from "./Pages/profile";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <div>hello world</div>,
-    errorElement: <ErrorPage /> ,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/login",
@@ -24,8 +25,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/products",
-    element: <ProductPage/>
-  }
+    element: <ProductPage />,
+  },
+  {
+    path: "/profile",
+    element: <ProfilePage />,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
