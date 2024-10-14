@@ -36,7 +36,7 @@ import { DarkMode } from "../context/DarkMode";
 // ];
 
 const ProductPage = () => {
-  const { isDarkMode, setDarkMode } = useContext(DarkMode);
+  const { isDarkMode} = useContext(DarkMode);
   // const [cart, setCart] = useState([]);
   // const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([]);
