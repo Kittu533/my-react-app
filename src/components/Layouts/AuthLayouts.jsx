@@ -1,10 +1,24 @@
 import { Link } from "react-router-dom";
+import { DarkMode } from "../../context/DarkMode";
+import { useContext } from "react";
+import Button from "../Elements/Button";
 
 const AuthLayout = (props) => {
   const { children, title, type } = props;
+  const { isDarkMode, setDarkMode } = useContext(DarkMode);
+  {
+    console.log(isDarkMode);
+  }
   return (
-    <div className="flex gap-16 justify-center min-h-screen items-center">
+    <div
+      className={`flex gap-16 justify-center min-h-screen items-center ${
+        isDarkMode && "bg-slate-900"
+      }`}
+    >
       <div className="w-full max-w-xs">
+        <Button className="absolute right-2 top-2 bg-blue-700 p-2 text-white rounded-md" onClick={() => setDarkMode(!isDarkMode)}>
+          {isDarkMode ? "Light" : "Dark"}
+        </Button>
         <h1 className="text-3xl font-bold mb-4 text-blue-600">{title}</h1>
         <p className="font-medium text-slate-500 mb-8">
           Welcome,please enter your details
@@ -13,7 +27,7 @@ const AuthLayout = (props) => {
         {/* <Navigation type={type} /> */}
 
         {/* Jika kondisi hanya 2 faktor gunakan ternary operator
-            Jika lebih dari 2 bisa gunakan yang AND atau bisa menggunakan yang IF
+            Jika lebih dari 2 bisa gunakan  yang AND atau bisa menggunakan yang IF
             JIka menggunkan AND kita merender 1 per 1
             kalau menggunakan IF kita merender semua  */}
         {/* Ternary operator  */}
